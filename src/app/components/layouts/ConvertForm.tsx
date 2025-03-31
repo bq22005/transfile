@@ -9,6 +9,7 @@ export function ConvertForm() {
   const extTo: string[] = ["svg"];
   
   const [message, setMessage] = useState("ファイルをアップロードしてください");
+  const [selectedExt, setSelectedExt] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
@@ -17,8 +18,11 @@ export function ConvertForm() {
         <div className={styles.selection}>
           <div className={styles.from}>
             <h2 className={styles.formTitle}>From</h2>
-            <select className={styles.dropdown}>
-              <option value="">Select extension</option>
+            <select
+              className={styles.dropdown}
+              onChange={(e) => setSelectedExt(e.target.value)}
+              value={selectedExt}
+            >
               {extFrom.map((ext) => (
                 <option key={ext} value={ext}>{ext}</option>
               ))}
@@ -27,7 +31,6 @@ export function ConvertForm() {
           <div className={styles.to}>
             <h2 className={styles.formTitle}>To</h2>
             <select className={styles.dropdown}>
-              <option value="">Select extension</option>
               {extTo.map((ext) => (
                 <option key={ext} value={ext}>{ext}</option>
               ))}
@@ -35,7 +38,11 @@ export function ConvertForm() {
           </div>
         </div>
         <div className={styles.uploadContainer}>
-          <input className={styles.upload} type="file" />
+          <input
+            className={styles.upload}
+            type="file"
+            accept={selectedExt ? `image/${selectedExt}` : "image/*"}
+          />
         </div>
         <div className={styles.downloadForm}>
           <h2 className={styles.message}>{message}</h2>

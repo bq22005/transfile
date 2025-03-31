@@ -9,6 +9,7 @@ export function ConvertForm() {
   const extTo: string[] = ["svg"];
   
   const [message, setMessage] = useState("ファイルをアップロードしてください");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   return (
     <div className={styles.convertForm}>
@@ -33,10 +34,12 @@ export function ConvertForm() {
             </select>
           </div>
         </div>
-        <Button>アップロード</Button>
+        <div className={styles.uploadContainer}>
+          <input className={styles.upload} type="file" />
+        </div>
         <div className={styles.downloadForm}>
           <h2 className={styles.message}>{message}</h2>
-          <Button>ダウンロード</Button>
+          <Button disabled={isDisabled}>ダウンロード</Button>
         </div>
       </div>
     </div>

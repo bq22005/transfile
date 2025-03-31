@@ -5,17 +5,14 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
 }
 
-.formContainer {
-  margin: 10px 0 30px 0;
-}
-
 .selection {
+  margin: 20px 0 50px 0;
   display: flex;
   justify-content: center;
 }
 
 .from, .to {
-  margin: 5%;
+  margin: 0 20px;
 }
 
 .formTitle {
@@ -30,9 +27,18 @@
   border-radius: 10px;
 }
 
+.uploadContainer {
+  padding: 9px;
+  margin: 0 auto;
+  width: 45%;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .downloadForm {
   text-align: center;
-  margin: 30px 0;
+  margin: 70px 0 30px 0;
 }
 
 .message {

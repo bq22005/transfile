@@ -7,9 +7,8 @@ export const postImage = async (imgFile: File) => {
   formData.append("image", imgFile);
 
   try {
-    const res = await axios.post(`${apiUrl}/convert`, imgFile);
+    const res = await axios.post(`${apiUrl}/convert`, formData);
     return res.data;
-    
   } catch (error) {
     console.error("Failed to post image.", error);
     return null;
